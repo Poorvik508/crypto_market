@@ -3,7 +3,7 @@ import './Navbar.css'
 import logo from '../../assets/logo.png'
 import arrow_icon from '../../assets/arrow_icon.png'
 import { Coincontext } from "../../context/Coincontext"
-
+import { Link } from "react-router-dom"
 const Navbar = () => {
     const { setcurrency } = useContext(Coincontext)
     const currencyhandler = (event) => {
@@ -29,24 +29,30 @@ const Navbar = () => {
     }
   return (
     <div className="navbar">
-          <img className="logo" src={logo} alt="" />
-          <ul>
-              <li>Home</li>
-              <li>Features</li>
-              <li>Pricing</li>
-              <li>Blog</li>
-              
-          </ul>
-          <div className="nav-right">
-              <select onChange={currencyhandler}>
-                  <option value="usd">USD</option>
-                  <option value="eur">EUR</option>
-                  <option value="inr">INR</option>
-              </select>
-          </div>
-              <button>Sing up <img src={arrow_icon} alt="" /></button>
+      <Link to={"/"}>
+        <img className="logo" src={logo} alt="" />
+      </Link>
+      <ul>
+        <Link to={"/"}>
+          {" "}
+          <li>Home</li>
+        </Link>
+        <li>Features</li>
+        <li>Pricing</li>
+        <li>Blog</li>
+      </ul>
+      <div className="nav-right">
+        <select onChange={currencyhandler}>
+          <option value="usd">USD</option>
+          <option value="eur">EUR</option>
+          <option value="inr">INR</option>
+        </select>
+      </div>
+      <button>
+        Sing up <img src={arrow_icon} alt="" />
+      </button>
     </div>
-  )
+  );
 }
 
 export default Navbar
