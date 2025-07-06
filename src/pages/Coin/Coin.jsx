@@ -33,7 +33,7 @@ const Coin = () => {
     return (
       <div className="coin">
         <div className="coin-name">
-          <img src={coindata.image.large} alt={coindata.name} />
+          <img src={coindata.image.large} alt='' />
           <p>
             <b>
               {coindata.name}({coindata.symbol.toUpperCase()})
@@ -51,19 +51,19 @@ const Coin = () => {
           </ul>
           <ul>
             <li>Current Price</li>
-            <li>{currency.symbol}{coindata.market_data.current_price['usd'].toLocaleString()}</li>
+            <li>{currency.Symbol}{coindata.market_data.current_price['usd'].toLocaleString()}</li>
           </ul>
           <ul>
             <li>Market cap</li>
-            <li>{currency.symbol}{coindata.market_data.market_cap[currency.name].toLocaleString()}</li>
+            <li>{currency.Symbol}{coindata.market_data.market_cap[currency.name].toLocaleString()}</li>
           </ul>
           <ul>
             <li>24 Hour high</li>
-            <li>{currency.symbol}{coindata.market_data.high_24h[currency.name].toLocaleString()}</li>
+            <li>{currency.Symbol}{coindata.market_data.high_24h[currency.name].toLocaleString()}</li>
           </ul>
           <ul>
             <li>24 Hour low</li>
-            <li>{currency.symbol}{coindata.market_data.low_24h[currency.name].toLocaleString()}</li>
+            <li>{currency.Symbol}{coindata.market_data.low_24h[currency.name].toLocaleString()}</li>
           </ul>
         </div>
       </div>

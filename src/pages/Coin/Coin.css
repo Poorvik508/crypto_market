@@ -46,7 +46,7 @@
     }
     .coin-info{
         max-width: 600px;
-        margin: 200px auto;
+        margin: 50px auto;
         display: flex;
         flex-direction: column;
     }
