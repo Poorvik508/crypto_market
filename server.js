@@ -38,6 +38,26 @@ app.get("/api/coins/:id", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch coin data" });
   }
 });
+app.get("/api/coins/history/:id", async (req, res) => {
+  const coinId = req.params.id;
+  try {
+    const response = await axios.get(
+      `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart`,
+      {
+        params: {
+          vs_currency: "usd",
+          days: 10,
+          interval:"daily"// or 1, 30, 90, max
+        },
+        headers: { accept: "application/json" },
+      }
+    );
+    res.json(response.data);
+  } catch (error) {
+    console.error("Coin history error:", error.message);
+    res.status(500).json({ error: "Failed to fetch coin history data" });
+  }
+});
 
 
 
